@@ -1,0 +1,187 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Corporation.master.cs" Inherits="Pages_Masters_Corporation" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+     <link rel="icon" href="../../img/favicon.png">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/animate.css">
+    <link rel="stylesheet" href="../../css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../css/all.css" />
+    <link rel="stylesheet" href="../../css/flaticon.css">
+    <link rel="stylesheet" href="../../css/themify-icons.css">
+    <link rel="stylesheet" href="../../css/nice-select.css">
+    <link rel="stylesheet" href="../../css/magnific-popup.css">
+    <link rel="stylesheet" href="../../css/slick.css">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    
+     <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery-1.12.1.min.js"></script>
+    <script src="../../js/toastr.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                z-index: 9999 !important;
+                position: absolute;
+                left: 0;
+                top: 127px;
+                width: 100%;
+                background-color: grey;
+                border: 1px black;
+                color: white;
+                text-align: center !important;
+            }
+
+            #menuUserM a{
+               color:black !important;
+            }
+
+             .navbar-collapse ul a{
+               color:white !important;
+            }
+        }
+
+
+       #user {
+            list-style: none;
+            display: inline-block;
+            padding-left: 28px;
+         
+        }
+    #user a{
+        
+        
+         color: white;
+       
+    }
+    #user a:hover{
+        background-color: #ffcc00;
+    }
+
+
+    #menuUser li{
+        text-align:center;
+        color:black;
+       
+    }
+    #menuUser a{
+          color: white;
+    }
+
+
+
+    #menuUser a:hover{
+      color: black;
+
+        
+    }
+    .round-border{
+        border-radius: 10px;
+       
+    }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="l-box-content">
+                                
+                                <div class="d-lg-none text-center">
+                                    <a href="../ToCompany/Home_emp.aspx"><img src="../../img/logo.png" style="width: 50%;"></a>
+                                    </div>
+                                <div class="d-none d-lg-block">
+                                      <a href="../ToCompany/Home_emp.aspx"><img src="../../img/logo.png" style="width: 20%;"></a>
+                                </div>
+
+                                </div>
+                        
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"><i class="fas fa-bars fa-fw" "></i></span>
+                        </button>
+                         
+                             <asp:Button runat="server" ID="btn_verProspostasRealizadas" OnClick="btn_verProspostasRealizadas_Click" Text="Prospostas Feitas" CssClass="genric-btn primary round-border d-none d-lg-block"/>
+                           <asp:Button runat="server" ID="btn_verRequisições" Text="Requições de Viagem" OnClick="btn_verRequisições_Click" CssClass="genric-btn primary round-border ml-3 d-none d-lg-block"/>                                               
+                          <li class="nav-item dropdown d-none d-lg-block " id="user">
+                                    <a class="nav-link dropdown-toggle  genric-btn primary round-border"  id="navbarDropdown"
+                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       <asp:Literal runat="server" ID="ltl_user"><i class="fa fa-user"></i>    User</asp:Literal>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="menuUser">
+                                        
+                                        <li class="dropdown-item"><a href="../ToCompany/Edit_Profile.aspx"> Minha Conta</a></li>
+                                          <li class="dropdown-item"><a href="../ToCompany/Vehicles.aspx">Veículos</a></li>
+                                            <li class="dropdown-item"><a href="../ToCompany/Drivers.aspx">Motoristas</a></li>
+                                             
+                                                <li class="dropdown-item"><a href="#">Histórico de Viagens</a></li>
+                                        <li class="dropdown-item"><a href="../ToVisitor/Index.aspx">Sair</a></li>
+                                    </ul>
+                                </li>
+                        
+
+
+                          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                              <ul class="navbar-nav pt-30">
+                                  <li class="nav-item d-lg-none">
+                                        <a class="nav-link dropdown-toggle"  id="navbarDropdownM"
+                                        role="button" data-toggle="dropdown" style="cursor:pointer;">
+                                       <asp:Literal runat="server" ID="Literal1" >User</asp:Literal>
+                                    </a>
+                                        <ul class="dropdown-menu primary" aria-labelledby="navbarDropdown" id="menuUserM" style="background-color:#ffcc00;">
+                                        
+                                        <li class="dropdown-item"><a href="../ToCompany/Edit_Profile.aspx"   style="color:black;"> Minha Conta</a></li>
+                                          <li class="dropdown-item""><a href="../ToCompany/Vehicles.aspx"   style="color:black;">Veículos</a></li>
+                                            <li class="dropdown-item"  ><a href="../ToCompany/Drivers.aspx"   style="color:black;">Motoristas</a></li>
+                                                <li class="dropdown-item"  ><a href="#"   style="color:black;">Histórico de Viagens</a></li>
+                                        <li class="dropdown-item"  ><a href="../ToVisitor/Index.aspx"   style="color:black;">Sair</a></li>
+                                    </ul>
+                                  </li>
+                                  <li class="nav-item d-lg-none">
+                                           <a class="nav-link" href="index.html" data-toggle="modal"
+                                        data-target="#loginModal">Prospostas Feitas</a>
+                                  </li>
+                                  <li class="nav-item d-lg-none">
+                                           <a class="nav-link" href="index.html" data-toggle="modal"
+                                        data-target="#loginModal">Requições de Viagem</a>
+                                  </li>
+
+
+                              </ul>
+                              </div>
+
+
+
+                    </nav>
+
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+          <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery-1.12.1.min.js"></script>
+    <script src="../../js/toastr.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">  
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
