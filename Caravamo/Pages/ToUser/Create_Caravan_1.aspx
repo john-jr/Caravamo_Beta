@@ -34,7 +34,7 @@
                 <label>Título da Caravana:</label>
             </div>
             <div class="col-md-8 col-lg-8 col-xl-8 col-12">
-                <asp:TextBox runat="server" ID="txt_tituloCaravana" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="txt_tituloCaravana" CssClass="form-control" onkeypress="return AllowAlphabet(event)"></asp:TextBox>
             </div>
         </div>
         <div class="row">
@@ -111,6 +111,18 @@
         $("#<%= btnAvancar1.ClientID %>").click(function () {
             return $('#form1').valid();
         })
+
+
+        function AllowAlphabet(e) {
+            isIE = document.all ? 1 : 0
+            keyEntry = !isIE ? e.which : event.keyCode;
+            if (((keyEntry >= '65') && (keyEntry <= '90')) || ((keyEntry >= '97') && (keyEntry <= '122')) || (keyEntry == '46') || (keyEntry == '32') || keyEntry == '45')
+                return true;
+            else {
+                 return false;
+            }
+        }
+
     </script>
   
     

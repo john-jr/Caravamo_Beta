@@ -3,15 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-         <script src="../../js/bootstrap.min.js"></script>
-     <script src="../../js/jquery-1.12.1.min.js"></script>
-     <script src="../../js/toastr.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   
 
     <link href="../../css/steps.css" rel="stylesheet" />
     <link href="../../css/jquery-ui.min.css" rel="stylesheet" />
     <link href="../../css/rangeslider.css" rel="stylesheet" />
-
+          <script src="../../js/bootstrap.min.js"></script>
+     <script src="../../js/jquery-1.12.1.min.js"></script>
+     <script src="../../js/toastr.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <style>
@@ -167,7 +167,7 @@
         <div class="container mb-5  ">
             <div class="row col-lg-12">
                 <div class="container col-6 col-lg-3 col-md-5">
-                    <asp:Literal ID="ltl_status" runat="server"></asp:Literal>
+                 
                     <asp:LinkButton runat="server" ID="LinkButton1" class="genric-btn danger btn-block float-left">
   <i class=' fa fa-arrow-left'></i>  Retornar
                     </asp:LinkButton>
@@ -190,7 +190,8 @@
         </div>
 
     </div>
-  
+     <asp:Literal ID="ltl_status" runat="server"></asp:Literal>
+
 
 </asp:Content>
 

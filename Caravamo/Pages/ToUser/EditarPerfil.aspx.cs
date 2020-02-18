@@ -17,16 +17,16 @@ public partial class Pages_ToUser_EditarPerfil : System.Web.UI.Page
     {
         if(txt_email.ReadOnly == false)
         {
-            if ()
-            {
+          //  if ()
+          //  {
                 txt_email.ReadOnly = true;
                 btn_editarEmail.Text = "";
                 btn_editarEmail.Text = "<i class='fa fa-pencil-alt'></i>";
-            }
-            else
-            {
+         //   }
+         //   else
+          //  {
 
-            }
+         //   }
         }
         else
         {
@@ -39,14 +39,14 @@ public partial class Pages_ToUser_EditarPerfil : System.Web.UI.Page
     {
         if(txt_nomePessoa.ReadOnly == false)
         {
-            if(){
+           // if(){
                 txt_nomePessoa.ReadOnly = true;
                 btn_editarNome.Text = "";
                 btn_editarNome.Text = "<i class='fa fa-pencil-alt'></i>";
-            }
-            else {
-                
-            }
+          //  }
+          //  else {
+         //       
+         //   }
 
         }
         else
