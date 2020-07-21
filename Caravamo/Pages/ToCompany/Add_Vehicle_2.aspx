@@ -177,7 +177,7 @@
             $("#slider-range").slider({
                 range: "max",
                 min: 2,
-                max: 42,
+                max: 92,
 
                 slide: function (event, ui) {
                     $("#amount").val(ui.value);

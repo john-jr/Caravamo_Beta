@@ -101,10 +101,11 @@ public class VehicleDB
             IDbConnection conexao;
             IDbCommand query;
             conexao = Mapped.Connection();
-            string command = "insert into veiculos (vei_placa, vei_crlv, vei_tipo, mod_id, vei_ano, vei_assentos, emp_id) values (?vei_placa, ?vei_crlv, ?vei_tipo, ?mod_id, ?vei_ano, ?vei_assentos, ?emp_id);";
+            string command = "insert into veiculos (vei_placa, vei_foto ,vei_crlv, vei_tipo, mod_id, vei_ano, vei_assentos, emp_id) values (?vei_placa, ?foto ,?vei_crlv, ?vei_tipo, ?mod_id, ?vei_ano, ?vei_assentos, ?emp_id);";
             query = Mapped.Command(command, conexao);
 
             query.Parameters.Add(Mapped.Parameter("?vei_placa", vei.Vei_placa));
+            query.Parameters.Add(Mapped.Parameter("?foto", vei.Vei_foto));
             query.Parameters.Add(Mapped.Parameter("?vei_crlv", vei.Vei_crlv));
             query.Parameters.Add(Mapped.Parameter("?vei_tipo", vei.Vei_tipo));
             query.Parameters.Add(Mapped.Parameter("?mod_id", id_modelo));
@@ -177,7 +178,7 @@ public class VehicleDB
             IDbCommand command;
             IDataAdapter dataAdapter;
             conexao = Mapped.Connection();
-        string query = "select veiculos.vei_assentos, veiculos.vei_id, veiculos.vei_placa, veiculos.vei_tipo, modelo.mod_marca, modelo.mod_nome ,veiculos.vei_ano from veiculos  inner join modelo on  modelo.mod_id = veiculos.mod_id where emp_id = ?emp_id;";
+        string query = "select veiculos.vei_assentos, veiculos.vei_foto as foto ,veiculos.vei_id, veiculos.vei_placa, veiculos.vei_tipo, modelo.mod_marca, modelo.mod_nome ,veiculos.vei_ano from veiculos  inner join modelo on  modelo.mod_id = veiculos.mod_id where emp_id = ?emp_id;";
 
             command = Mapped.Command(query, conexao);
             dataAdapter = Mapped.Adapter(command);

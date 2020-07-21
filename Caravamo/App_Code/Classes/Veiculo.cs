@@ -14,6 +14,7 @@ public class Veiculo
     private string mod_modelo;
     private string mod_marca;
     private string acessorio;
+    private string vei_foto;
     private int mod_id;
     private int vei_ano;
     private int vei_assentos;
@@ -31,6 +32,7 @@ public class Veiculo
             vei_placa = value;
         }
     }
+
 
     public string Vei_crlv
     {
@@ -146,6 +148,19 @@ public class Veiculo
         set
         {
             acessorio = value;
+        }
+    }
+
+    public string Vei_foto
+    {
+        get
+        {
+            return vei_foto;
+        }
+
+        set
+        {
+            vei_foto = value;
         }
     }
 }

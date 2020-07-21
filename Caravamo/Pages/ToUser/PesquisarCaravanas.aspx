@@ -174,12 +174,12 @@
         <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <asp:LinkButton runat="server" BorderColor="#f8f9fa" BorderStyle="none" BorderWidth="0px" Style="background-color: #f8f9fa; padding: 8px">
+                    <asp:LinkButton runat="server" BorderColor="#f8f9fa" BorderStyle="none" ID="btn_pesquisa" OnClick="btn_pesquisa_Click" BorderWidth="0px" Style="background-color: #f8f9fa; padding: 8px">
                         <i class="fa fa-search" style="color: black"></i>
                     </asp:LinkButton>
                 </div>
                 <asp:TextBox type="search" placeholder="Pesquise por destinos, saídas ou eventos..." aria-describedby="button-addon2"
-                    CssClass="form-control border-0 bg-light" runat="server"></asp:TextBox>
+                    CssClass="form-control border-0 bg-light" ID="txt_Pesquisa" runat="server"></asp:TextBox>
             </div>
         </div>
     </section>
@@ -198,93 +198,17 @@
                         <article class="card-group-item ">
                             <div class="filter-content" style="border-top: 0 solid transparent;">
                                 <div class="card-body">
-                                    <label for="datepicker">Data de Saída:</label>
-                                    <asp:TextBox runat="server" TextMode="Date" CssClass="form-control text-center"></asp:TextBox>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card-group-item">
-                            <hr>
-                            <div class="filter-content">
-                                <div class="card-body">
-                                    <label for="origem">Estado de origem:</label>
-
-                                    <asp:DropDownList runat="server" ID="ddlyear" CssClass="mb-2">
-
+                                    <label for="datepicker">Organizar Por:</label>
+                                    <asp:DropDownList runat="server" ID="DropDownList4" CssClass="mb-2">
                                         <%--<asp:ListItem Text="Estado" Selected="True" Value=""></asp:ListItem>--%>
-                                        <asp:ListItem Value="1">São Paulo</asp:ListItem>
-                                        <asp:ListItem Value="2">Minas Gerais</asp:ListItem>
-                                        <asp:ListItem Value="3">Rio de Janeiro</asp:ListItem>
-                                        <asp:ListItem Value="4">Espírito Santo</asp:ListItem>
+                                        <asp:ListItem Value="Recent">Mais Recentes</asp:ListItem>
+                                         <asp:ListItem Value="Old">Mais Antigas</asp:ListItem>
                                     </asp:DropDownList>
-
-
-                                    <br>
-                                    <br>
-                                    <label for="origem">Cidade de origem:</label>
-
-                                    <asp:DropDownList runat="server" ID="DropDownList1" CssClass="mb-2">
-                                        <asp:ListItem Value="1">Guaratinguetá</asp:ListItem>
-                                        <asp:ListItem Value="2">Lorena</asp:ListItem>
-                                        <asp:ListItem Value="3">São José dos Campos</asp:ListItem>
-                                    </asp:DropDownList>
-                                    <%--<select class="mr-sm-2" id="cidadeOrigem">
-
-                                        <option value="" disabled hidden selected>Cidade
-                                            </option>
-                                        <option value="1">Guaratinguetá</option>
-                                        <option value="2">Lorena</option>
-                                        <option value="3">São José dos Campos</option>
-                                    </select>--%>
                                 </div>
-                                <!-- card-body.// -->
                             </div>
                         </article>
-                        <!-- card-group-item.// -->
-                        <article class="card-group-item">
-                            <hr>
-                            <div class="filter-content">
-                                <div class="card-body">
-
-                                    <label for="Destino">Estado de destino:</label>
-                                    <%--<label for="Destino">Endereço de Destino:</label>--%>
-
-                                    <%--<select class="mb-2" id="estadoOrigem">
-                                        <option value="" disabled hidden selected>Estado
-                                                </option>
-                                        <option value="1">São Paulo</option>
-                                        <option value="2">Minas Gerais</option>
-                                        <option value="3">Rio de Janeiro</option>
-                                        <option value="3">Espírito Santo</option>
-                                    </select>--%>
-                                    <asp:DropDownList runat="server" ID="DropDownList2" CssClass="mb-2">
-                                        <asp:ListItem Value="1">São Paulo</asp:ListItem>
-                                        <asp:ListItem Value="2">Minas Gerais</asp:ListItem>
-                                        <asp:ListItem Value="3">Rio de Janeiro</asp:ListItem>
-                                        <asp:ListItem Value="4">Espírito Santo</asp:ListItem>
-                                    </asp:DropDownList>
-
-                                    <br>
-                                    <br>
-                                    <label for="Destino">Cidade de destino:</label>
-                                    <%--<select class="mr-sm-2" id="cidadeOrigem">
-
-                                        <option value="" disabled hidden selected>Cidade
-                                                </option>
-                                        <option value="1">Guaratinguetá</option>
-                                        <option value="2">Lorena</option>
-                                        <option value="3">São José dos Campos</option>
-                                    </select>--%>
-                                    <asp:DropDownList runat="server" ID="DropDownList3" CssClass="mr-sm-2">
-                                        <asp:ListItem Value="1">Guaratinguetá</asp:ListItem>
-                                        <asp:ListItem Value="2">Lorena</asp:ListItem>
-                                        <asp:ListItem Value="3">São José dos Campos</asp:ListItem>
-                                    </asp:DropDownList>
-
-                                </div>
-                                <!-- card-body.// -->
-                            </div>
-                        </article>
+                      
+                        
                         <!-- card-group-item.// -->
                         <article class="card-group-item">
                             <hr>
@@ -292,7 +216,7 @@
                                 <div class="card-body">
 
                                     <%--<button type="submit" id="btn_filtrar" class="btn_1" style="width: 100%;">Filtrar</button>--%>
-                                    <asp:Button type="submit" runat="server" ID="btn_filtrar" CssClass="btn_1" Style="width: 100%" Text="Filtrar" />
+                                    <asp:Button type="submit" runat="server" ID="btn_filtrar" CssClass="btn_1" Style="width: 100%" Text="Filtrar" OnClick="btn_filtrar_Click" />
 
                                 </div>
                                 <!-- card-body.// -->
@@ -305,160 +229,27 @@
 
                 <div class="col-12 col-lg-9">
                     <div class="col-12">
-                        <asp:Label runat="server" CssClass="h5">3 Resultados Encontrados</asp:Label>
-                    </div>
-                    <div class="container py-3">
-                        <div class="card">
-                            <div class="row ">
-                                <div class="col-md-4">
-                                    <asp:Image runat="server" CssClass="w-100 h-100" src="../../img/index_images/corintihansVSflamengo.jpg" />
-                                </div>
-                                <div class="col-md-8 px-3">
-                                    <div class="card-block px-3">
-                                        <h4 class="text-center mt-2">
-                                            <asp:Label runat="server" CssClass="card-title text-center" Style="padding-top: 5px">Corinthians vs Flamengo</asp:Label></h4>
-                                        <div class="dates">
-                                            <div class="start">
-                                                <strong>Data de saída:</strong>
-                                                <%--<asp:Label runat="server" Text="22/09/2019">22/09/2019</asp:Label>--%>
-                                                <asp:Literal runat="server">22/09/2019</asp:Literal>
-
-                                            </div>
-                                            <div class="ends">
-                                                <strong>Data de Chegada:</strong>
-                                                <asp:Literal runat="server">22/09/2019</asp:Literal>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="dates">
-                                            <div class="start">
-                                                <strong>Endereço de Origem:</strong>
-                                                <asp:Literal runat="server">São Paulo - SP</asp:Literal>
-
-                                                <span></span>
-                                            </div>
-                                            <div class="ends">
-                                                <strong>Endereço de Destino:</strong>
-                                                <asp:Literal runat="server">São Caetano - SP</asp:Literal>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 mb-3">
-                                            <div style="font-size: 1.3em">
-                                                <%--class="tour_content_rating btnJoin"--%>
-                                                <%--<a href="#" class="genric-btn primary" data-toggle="modal"
-                                                    data-target="#loginModal">Mais informações</a>--%>
-                                                <asp:Button runat="server" CssClass="genric-btn primary mt-2 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
+                        <asp:Label runat="server" ID="ltl_resultados" CssClass="h5">3 Resultados Encontrados</asp:Label>
                     </div>
 
-                    <div class="container py-3">
-                        <div class="card">
-                            <div class="row ">
-                                <div class="col-md-4">
-                                    <asp:Image runat="server" src="../../img/index_images/ccxp19.jpg" CssClass="w-100 h-100" />
-                                </div>
-                                <div class="col-md-8 px-3">
-                                    <div class="card-block px-3">
-                                        <%--<h4 class="card-title text-center" style="padding-top: 5px">CCXP 2019</h4>--%>
-                                        <h4 class="text-center mt-2">
-                                            <asp:Label runat="server" CssClass="card-title text-center" Style="padding-top: 5px">CCXP 2019</asp:Label></h4>
+                    <asp:PlaceHolder ID="phl_caravans" runat="server"></asp:PlaceHolder>
 
-                                        <div class="dates">
-                                            <div class="start">
-                                                <strong>Data de saída:</strong>
-                                                <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                                <span></span>
-                                            </div>
-                                            <div class="ends">
-                                                <strong>Data de Chegada:</strong>
-                                                <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                            </div>
-                                        </div>
+                     
 
-                                        <div class="dates">
-                                            <div class="start">
-                                                <strong>Endereço de Origem:</strong>
-                                                <asp:Literal runat="server">São Paulo - SP</asp:Literal>
-                                                <span></span>
-                                            </div>
-                                            <div class="ends">
-                                                <strong>Endereço de Destino:</strong>
-                                                <asp:Literal runat="server">São Caetano - SP</asp:Literal>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 mb-3">
-                                            <div style="font-size: 1.3em">
-                                                <asp:Button runat="server" CssClass="genric-btn primary mt-2 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    
 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container py-3">
-                        <div class="card">
-                            <div class="row ">
-                                <div class="col-md-4">
-                                    <asp:Image runat="server" src="../../img/index_images/noimg.png" CssClass="w-100 h-100" />
-                                </div>
-                                <div class="col-md-8 px-3">
-                                    <div class="card-block px-3">
-                                        <%--<h4 class="card-title text-center" style="padding-top: 5px">São José dos Campos</h4>--%>
-                                        <h4 class="text-center mt-2">
-                                            <asp:Label runat="server" CssClass="card-title text-center" Style="padding-top: 5px">São José dos Campos</asp:Label></h4>
-
-                                        <div class="dates">
-                                            <div class="start">
-                                                <strong>Data de saída:</strong>
-                                                <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                                <span></span>
-                                            </div>
-                                            <div class="ends">
-                                                <strong>Data de Chegada:</strong>
-                                                <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                            </div>
-                                        </div>
-
-                                        <div class="dates">
-                                            <div class="start">
-                                                <strong>Endereço de Origem:</strong>
-                                                <asp:Literal runat="server">São Paulo - SP</asp:Literal>
-                                                <span></span>
-                                            </div>
-                                            <div class="ends">
-                                                <strong>Endereço de Destino:</strong>
-                                                <asp:Literal runat="server">São José dos Campos - SP</asp:Literal>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 mb-3">
-                                            <div style="font-size: 1.3em">
-                                                <asp:Button runat="server" CssClass="genric-btn primary mt-2 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
 
             </div>
         </div>
-        </div>
-        </div>
+         
+
+                    
+
+                    
+           
+      
   
         <!--<li>
                 <label for="categoria">Categoria:</label>

@@ -9,7 +9,10 @@ public partial class Pages_Masters_User : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["id"] == null && Session["cliente"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
     }
 
     protected void btn_criarCaravana_Click(object sender, EventArgs e)

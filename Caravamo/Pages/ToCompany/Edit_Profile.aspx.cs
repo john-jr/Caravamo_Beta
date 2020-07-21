@@ -10,23 +10,66 @@ using System.Web.UI.WebControls;
 public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
 {
    static StringBuilder sb = new StringBuilder();
-
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_PreInit(object sender, EventArgs e)
     {
-   
+        if (Session["id"] == null && Session["empresa"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+    }
+
+
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+       
+
+        txt_nomeFantasia.Enabled = false;
+        txt_RazaoSocial.Enabled = false;
+        txt_email.Enabled = false;
+
+        txt_nomeFantasia.ReadOnly = true;
+        txt_RazaoSocial.ReadOnly = true;
+        txt_email.ReadOnly = true;
+
+        ltl_status.Text = "";
+    }
+
+
+        protected void Page_Load(object sender, EventArgs e)
+    {
+
+       
             DataSet ds = CompanyDB.selectEmpresa4(Convert.ToInt32(Session["id"]));
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                lbl_nomeFantasia.Text = dr["emp_nome"].ToString();
-                lbl_razaoSocial.Text = dr["emp_razaosocial"].ToString();
 
-                txt_RazaoSocial.Text = dr["emp_razaosocial"].ToString();
-                txt_nomeFantasia.Text = dr["emp_nome"].ToString();
 
-                txt_email.Text = dr["usu_email"].ToString();
 
+
+                if (txt_RazaoSocial.Text.Equals(dr["emp_razaosocial"].ToString()) || !IsPostBack)
+                {
+                    txt_RazaoSocial.Text = dr["emp_razaosocial"].ToString();
+                    lbl_razaoSocial.Text = dr["emp_razaosocial"].ToString();
+
+                }
+
+                if (txt_nomeFantasia.Text.Equals(dr["emp_nome"].ToString()) || !IsPostBack)
+                {
+                    txt_nomeFantasia.Text = dr["emp_nome"].ToString();
+                    lbl_nomeFantasia.Text = dr["emp_nome"].ToString();
+                }
+
+                if (txt_email.Text.Equals(dr["usu_email"].ToString()) || !IsPostBack)
+                {
+                    txt_email.Text = dr["usu_email"].ToString();
+                }
+               
+
+            }
+        
+        
            
-        }
 
         
     }
@@ -35,12 +78,17 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
     {
         if(txt_nomeFantasia.ReadOnly == false)
         {
+          
+
             if (CompanyDB.UpdateNomeFantasia(txt_nomeFantasia.Text, Convert.ToInt32(Session["id"])) == 0)
             {
                 ltl_status.Text = "<script type=text/javascript> toastr.success('Dados atualizados com sucesso') </script>";
                 txt_nomeFantasia.ReadOnly = true;
+                txt_nomeFantasia.Enabled = false;
+               
                 btn_editarNomeFantasia.Text = "";
                 btn_editarNomeFantasia.Text =  "<i class='fa fa-pencil-alt'></i>";
+                Page_Load(this, EventArgs.Empty);
             }
             else
             {
@@ -52,6 +100,8 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
         {
             btn_editarNomeFantasia.Text = "<i class='fa  fa-check'></i>";
             txt_nomeFantasia.ReadOnly = false;
+          
+            txt_nomeFantasia.Enabled = true;
         }
     }
 
@@ -63,8 +113,11 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
             {
                 ltl_status.Text = "<script type=text/javascript> toastr.success('Dados atualizados com sucesso') </script>";
                 txt_RazaoSocial.ReadOnly = true;
+                txt_nomeFantasia.Enabled = false;
+
                 btn_editarRazaoSocial.Text = "";
                 btn_editarRazaoSocial.Text = "<i class='fa fa-pencil-alt'></i>";
+                Page_Load(this, EventArgs.Empty);
             }
             else
             {
@@ -75,6 +128,8 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
         {
             btn_editarRazaoSocial.Text = "<i class='fa  fa-check'></i>";
             txt_RazaoSocial.ReadOnly = false;
+            txt_RazaoSocial.Enabled = true;
+           
         }
     }
 
@@ -86,8 +141,11 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
             {
                 ltl_status.Text = "<script type=text/javascript> toastr.success('Dados atualizados com sucesso') </script>";
                 txt_email.ReadOnly = true;
+                txt_email.Enabled = false;
+
                 btn_EditarEmail.Text = "";
                 btn_EditarEmail.Text = "<i class='fa fa-pencil-alt'></i>";
+                
             }
             else
             {
@@ -99,6 +157,8 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
         {
             btn_EditarEmail.Text = "<i class='fa  fa-check'></i>";
             txt_email.ReadOnly = false;
+            txt_email.Enabled = true;
+
         }
     }
 
@@ -111,6 +171,7 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
                 if(CompanyDB.UpdateSenha(UserDB.Criptografia(txt_newSenha.Text),Convert.ToInt32(Session["id"])) == 0)
                 {
                     ltl_status.Text = "<script type=text/javascript> toastr.success('Senha alterada com sucesso') </script>";
+                    VisitorBD.SendEmailSenhaAtualizada(txt_email.Text);
                 }
                 else
                 {
@@ -128,4 +189,6 @@ public partial class Pages_ToCompany_Edit_Profile : System.Web.UI.Page
             ltl_status.Text = "<script type=text/javascript> toastr.error('Senha atual inválida') </script>";
         }
     }
+
+  
 }

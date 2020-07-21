@@ -5,21 +5,25 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
 
+   <link rel="stylesheet" href="../../css/toastr.min.css" />
     <style>
         .linha-vertical {
             height: 250px; /*Altura da linha*/
             border-left: 1px solid; /* Adiciona borda esquerda na div como ser fosse uma linha.*/
         }
     </style>
+   
+
+
     <div class="container col-lg-11">
         
         <section class="container mb-30">
             <div class="row">
                 <div class="col-lg-12 mt-30" style="text-align: center">
-                    <asp:Label runat="server" CssClass="h2">Título da Caravana</asp:Label>
+                    <asp:Label runat="server" CssClass="h2" ID="lbl_titulo">Título da Caravana</asp:Label>
                 </div>
                 <div class="col-lg-12 mt-1" style="text-align: center">
-                    <asp:Label runat="server" CssClass="h6">12/04/2020</asp:Label>
+                    <asp:Label runat="server" CssClass="h6" ID="lbl_DataHoraSaida">12/04/2020</asp:Label>
                 </div>
             </div>
         </section>
@@ -46,8 +50,9 @@
                 <div class="card">
                     <div class="card-header text-center">
                         <div class="row">
-                            <div style="padding-left: 15px;">
-                                <img src="../../img/funnel2.png" style="max-height: 30px; width: auto;" />
+                            <div style="padding-left: 15px;margin-top:5px">
+                                <i class="fa fa-filter fa-lg" aria-hidden="true"></i>
+                              
                             </div>
                             <div class="col-lg-8 col-2 ">
                                 <h3>Filtros</h3>
@@ -73,206 +78,21 @@
 
             <div class="container col-lg-9">
                 <div class=" container col-lg-11 col-md-10 ">
-                    <!--CARD-->
-                    <div class=" bg-light card border border-dark">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="container col-lg-7 col-md-7  col-11  mt-2 ">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-5">
-                                            <p>
-                                                Empresa:
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-6 col-md-7">
-                                            <p>
-                                                <asp:Label runat="server">GT Tur SA</asp:Label>
-                                            </p>
-                                        </div>
-                                        <hr />
-                                    </div>
+                    
+                  <asp:PlaceHolder runat="server" ID="phl_propostas"></asp:PlaceHolder>
 
-                                    <hr />
-
-                                    <div class="card-text mt-3">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-5">
-                                                <p>
-                                                    Data da Proposta:
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6 col-md-7">
-                                                <p>
-                                                    <asp:Label runat="server">20/12/2019</asp:Label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="card-text mt-3">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-5">
-                                                <p>
-                                                    Veículo:
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6 col-md-7">
-                                                <p>
-                                                    <asp:Label runat="server">Fiat Ducato Minibus</asp:Label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="card-text mt-3">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-5">
-                                                <p>
-                                                    Valor:
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6 col-md-7">
-                                                <p>
-                                                    <asp:Label runat="server">1500R$</asp:Label>
-                                                </p>
-                                            </div>
-
-
-                                        </div>
-                                        <hr />
-                                    </div>
-
-
-                                </div>
-
-                                <div class="linha-vertical d-none d-md-block d-md-none"></div>
-                                <hr />
-
-                                <div class=" col-lg-4 col-md-4 mt-4">
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn info btn-block" Text="Aceitar" />
-                                    </div>
-                                    <br />
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn primary btn-block " Text="Contraproposta" />
-                                    </div>
-                                    <br />
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn danger btn-block " Text="Recusar" />
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
+                    
                 </div>
 
 
-                <div class=" container col-lg-11 col-md-10 mt-4 ">
-                    <!--CARD-->
-                    <div class=" bg-light card border border-dark">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="container col-lg-7 col-md-7  col-11  mt-2 ">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-5">
-                                            <p>
-                                                Empresa:
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-6 col-md-7">
-                                            <p>
-                                                <asp:Label runat="server">GT Tur SA</asp:Label>
-                                            </p>
-                                        </div>
-                                        <hr />
-                                    </div>
-
-                                    <hr />
-
-                                    <div class="card-text mt-3">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-5">
-                                                <p>
-                                                    Data da Proposta:
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6 col-md-7">
-                                                <p>
-                                                    <asp:Label runat="server">20/12/2019</asp:Label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="card-text mt-3">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-5">
-                                                <p>
-                                                    Veículo:
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6 col-md-7">
-                                                <p>
-                                                    <asp:Label runat="server">Fiat Ducato Minibus</asp:Label>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="card-text mt-3">
-                                        <div class="row">
-                                            <div class="col-lg-4 col-md-5">
-                                                <p>
-                                                    Valor:
-                                                </p>
-                                            </div>
-                                            <div class="col-lg-6 col-md-7">
-                                                <p>
-                                                    <asp:Label runat="server">1500R$</asp:Label>
-                                                </p>
-                                            </div>
-
-
-                                        </div>
-                                        <hr />
-                                    </div>
-
-
-                                </div>
-
-                                <div class="linha-vertical d-none d-md-block d-md-none"></div>
-                                <hr />
-
-                                <div class=" col-lg-4 col-md-4 mt-4">
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn info btn-block" Text="Aceitar" />
-                                    </div>
-                                    <br />
-                                    <div class="container">
-                                        <asp:Button runat="server" ID="btnContra" OnClick="btnContra_Click" CssClass="genric-btn primary btn-block " data-toggle="modal" data-target="#Modalcontra" Text="Contraproposta" />
-                                    </div>
-                                    <br />
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn danger btn-block " Text="Recusar" />
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
 
 
 
     </div>
-    <div class="modal fade " id="Modalcontra">
+    <div class="modal fade" id="Modalcontra">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <!-- Modal Header -->
@@ -350,8 +170,18 @@
             </div>
         </div>
     </div>
+   
+    <link rel="icon" href="../../img/favicon.png" />
+    
+  
+    <script src="../../js/jquery-1.12.1.min.js"></script>
+      <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/toastr.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  
+   <asp:Literal runat="server" ID="ltl_status"></asp:Literal>
+       
+    
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </asp:Content>
 

@@ -39,13 +39,18 @@ public partial class Cad_emp : System.Web.UI.Page
                         switch (UserDB.insertCompany(emp))
                         {
                             case 0:
-                              
-                         ltl_status.Text= "<script type='text/javascript'> swal('Sucesso!', 'Você será redirecionado a página inicial', 'success')";
-                                ltl_status.Text +=".then((value) => {window.location.replace('Index.aspx')}); </script> ";
-
-                            
-
-
+                                string hash = UserDB.selectHashConf(id).ToString();
+                                if (!hash.Equals("0"))
+                                {
+                                    VisitorBD.SendEmailConf(c.Usu_email, hash);
+                                    ltl_status.Text = "<script type='text/javascript'> swal('Sucesso!', 'Você será redirecionado a página inicial', 'success')";
+                                    ltl_status.Text += ".then((value) => {window.location.replace('Index.aspx')}); </script> ";
+                                }
+                                else
+                                {
+                                    ltl_status.Text = "<script type=text/javascript> toastr.error('Erro 2: Não foi possível inserir cliente') </";
+                                    ltl_status.Text += "script>";
+                                }
                                 break;
 
                             case 2:

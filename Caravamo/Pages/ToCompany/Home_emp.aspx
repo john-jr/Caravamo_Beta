@@ -37,98 +37,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class=" col-lg-4 col-md-6 col-sm-6 col-12  mb-lg-4 mb-4">
-                        <!--CARD-->
-                        <a href="#">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-title h5 text-center">
 
-                                        <asp:Label runat="server">BGS 2019</asp:Label>
-                                        <hr />
-                                    </div>
-                                    <div class="card-text">
-                                        <p>
-                                            <asp:Label runat="server">São Paulo</asp:Label>
-                                        </p>
-                                    </div>
-                                    <div class="card-text">
-                                        <p>
-                                            <asp:Label runat="server">20 de outubro</asp:Label>
-                                        </p>
-                                    </div>
-                                    <br />
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn primary btn-more form-control" Text="Aguardando" />
+                  <asp:PlaceHolder runat="server" ID="phl_ultimasprops"></asp:PlaceHolder>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-
-                    <div class=" col-lg-4 col-md-6  col-sm-6 col-12   mb-lg-4 mb-4">
-                        <!--CARD-->
-                        <a href="#">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-title h5 text-center">
-                                        <asp:Label runat="server">BGS 2019</asp:Label>
-                                        <hr />
-                                    </div>
-                                    <div class="card-text">
-                                        <p>
-                                            <asp:Label runat="server">São Paulo</asp:Label>
-                                        </p>
-                                    </div>
-                                    <div class="card-text">
-                                        <p>
-                                            <asp:Label runat="server">20 de outubro</asp:Label>
-                                        </p>
-                                    </div>
-                                    <br />
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn btn-success btn-more form-control" Text="Aceita" />
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
+                  
 
 
-                    <div class=" col-lg-4 col-md-6  col-sm-6 col-12   mb-lg-4 mb-4">
-                        <!--CARD-->
-                        <a href="#">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="card-title h5 text-center">
-
-                                        <asp:Label runat="server">BGS 2019</asp:Label>
-                                        <hr />
-                                    </div>
-                                    <div class="card-text">
-                                        <p>
-                                            <asp:Label runat="server">São Paulo</asp:Label>
-                                        </p>
-                                    </div>
-                                    <div class="card-text">
-                                        <p>
-                                            <asp:Label runat="server">20 de outubro</asp:Label>
-                                        </p>
-                                    </div>
-                                    <br />
-                                    <div class="container">
-                                        <asp:Button runat="server" CssClass="genric-btn danger btn-more form-control" Text="Recusada" />
-
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
+                   
 
 
                     <div class="col-lg-12">
@@ -152,85 +67,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-lg-2 mb-4">
-                        <!--CARD-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title text-center h5">
-                                    <asp:Label runat="server">BGS 2019</asp:Label>
-                                    <hr />
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">São Paulo</asp:Label>
-                                    </p>
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">20 de outubro</asp:Label>
-                                    </p>
-                                </div>
-                                <br />
-                                <div class="container">
-                                    <asp:Button runat="server" CssClass="genric-btn primary btn-more form-control " Text="Ver mais" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   <asp:PlaceHolder runat="server" ID="phl_proxViagens"></asp:PlaceHolder>
 
-                    <div class="col-lg-4 col-sm-6 lg-2 mb-4">
-                        <!--CARD-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title text-center h5">
-                                    <asp:Label runat="server">BGS 2019</asp:Label>
-                                    <hr />
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">São Paulo</asp:Label>
-                                    </p>
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">20 de outubro</asp:Label>
-                                    </p>
-                                </div>
+                    
 
-                                <br />
-                                <div class="container">
-                                    <asp:Button runat="server" CssClass="genric-btn primary btn-more form-control " Text="Ver mais" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6 lg-2 mb-4">
-                        <!--CARD-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title text-center h5">
-                                    <asp:Label runat="server">BGS 2019</asp:Label>
-                                    <hr />
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">São Paulo</asp:Label>
-                                    </p>
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">20 de outubro</asp:Label>
-                                    </p>
-                                </div>
-
-                                <br />
-                                <div class="container">
-                                    <asp:Button runat="server" CssClass="genric-btn primary btn-more form-control " Text="Ver mais" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  
 
 
                     <div class="col-lg-12">
@@ -252,84 +93,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-sm-6  mb-lg-2 mb-4">
-                        <!--CARD-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title h5">
-                                    <asp:Label runat="server">BGS 2019</asp:Label>
-                                    <hr />
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">São Paulo</asp:Label>
-                                    </p>
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">20 de outubro</asp:Label>
-                                    </p>
-                                </div>
-
-                                <br />
-                                <div class="container">
-                                    <asp:Button runat="server" CssClass="genric-btn primary btn-more form-control" Text="Ver mais" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 lg-2 mb-4">
-                        <!--CARD-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title h5">
-                                    <asp:Label runat="server">BGS 2019</asp:Label>
-                                    <hr />
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">São Paulo</asp:Label>
-                                    </p>
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">20 de outubro</asp:Label>
-                                    </p>
-                                </div>
-
-                                <br />
-                                <div class="container">
-                                    <asp:Button runat="server" CssClass="genric-btn primary btn-more form-control" Text="Ver mais" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 lg-2 mb-4">
-                        <!--CARD-->
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title h5">
-                                    <asp:Label runat="server">BGS 2019</asp:Label>
-                                    <hr />
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">São Paulo</asp:Label>
-                                    </p>
-                                </div>
-                                <div class="card-text">
-                                    <p>
-                                        <asp:Label runat="server">20 de outubro</asp:Label>
-                                    </p>
-                                </div>
-
-                                <br />
-                                <div class="container">
-                                    <asp:Button runat="server" CssClass="genric-btn primary btn-more form-control" Text="Ver mais" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
+                  <asp:PlaceHolder runat="server" ID="phl_requisicoes"></asp:PlaceHolder>  
+                  
                     <div class="col-lg-12">
                         <a href="Requisicoes.aspx">
                             <h6 class="float-right">Ver todas as requisições</h6>

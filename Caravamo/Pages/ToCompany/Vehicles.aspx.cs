@@ -9,6 +9,15 @@ using System.Web.UI.WebControls;
 
 public partial class Pages_ToCompany_Vehicle : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["id"] == null && Session["empresa"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+    }
+
+
     protected void Page_Init(object sender, EventArgs e)
     {
 
@@ -30,7 +39,7 @@ public partial class Pages_ToCompany_Vehicle : System.Web.UI.Page
             ltl_status += "</div>";
             ltl_status += "<div class='row'>";
             ltl_status += "<div class='col-12 rx-2'>";
-            ltl_status += "<img src='../../img/index_images/noimg.png' Class='w-100 border border-light rounded'>";
+            ltl_status += "<img src='" + dr["foto"].ToString() + "' Class='w-100 border border-light rounded'>";
             ltl_status += "</div>";
             ltl_status += "<div class='col-md-12  pt-2'>";
             ltl_status += "<div class='card-block btn-more'>";

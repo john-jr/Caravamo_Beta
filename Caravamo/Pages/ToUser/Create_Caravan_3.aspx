@@ -49,6 +49,22 @@
 
         </div>
 
+        <br />
+
+
+         <div class="row">
+            <div class="col-lg-2 col-xl-2 col-md-2 col-12 text-lg-right text-xl-right text-right">
+                <label for="txt_data">Hora de Saída:</label>
+            </div>
+
+
+            <div class="col-md-2 col-lg-2 col-2 offset-3 offset-lg-0 offset-md-0 offset-xl-0">
+                <asp:TextBox runat="server" ID="txt_horaDeSaida" type="Time"   CssClass="form-control mb-30 mb-lg-0 mb-md-0 mb-xl-0"></asp:TextBox>
+            </div>
+
+
+        </div>
+
     </div>
     <div class="container" style="min-height: 200px">
         <asp:Literal runat="server" ID="lbl_statusDatas"></asp:Literal>
@@ -63,7 +79,7 @@
     <div class="container">
         <div class="row ">
             <div class="col-4 text-center">
-                <asp:LinkButton runat="server" ID="LinkButton1" class="genric-btn danger ml-lg-5 ml-md-5 ml-0 mb-2">
+                <asp:LinkButton runat="server" ID="btnRetornar1" OnClick="btnRetornar1_Click" class="genric-btn danger ml-lg-5 ml-md-5 ml-0 mb-2">
   <i class=' fa fa-arrow-left'></i>  Retornar
                 </asp:LinkButton>
             </div>

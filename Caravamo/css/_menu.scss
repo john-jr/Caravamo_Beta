@@ -160,10 +160,11 @@
 	.dropdown-menu {
 		transition: all 0.5s;
 		overflow: hidden;
+		overflow: hidden;
 		transform-origin: top center;
 		transform: scale(1, 0);
 		display: block;
-		border: 0px solid transparent;
+		
 		background-color: $btn_bg;
 
 		.dropdown-item {
@@ -262,7 +263,7 @@
 }
 
 .dropdown-menu {
-	border: 0px solid rgba(0, 0, 0, .15) !important;
+	
 	background-color: #fafafa;
 }
 

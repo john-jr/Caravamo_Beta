@@ -151,6 +151,8 @@ public class CompanyDB
     }
 
 
+
+
     public static int UpdateEmail(string email, int id)
     {
         int status = 0;
@@ -323,5 +325,97 @@ public class CompanyDB
         return status;
     }
 
+
+    public static DataSet SelectPropostasFeitas(int id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection conexao;
+        IDbCommand command;
+        IDataAdapter dataAdapter;
+        conexao = Mapped.Connection();
+        string query = "select proposta.pro_id as id, proposta.pro_valor as Valor, mot_nome as NomeMotorista, vei_placa as Placa, mod_marca as Marca, mod_nome as Modelo, proposta.pro_status as StatusProposta,proposta.con_id as ContraProposta,proposta.pro_data as dataDeEnvio, caravana.car_id ,caravana.car_titulo as titulo, caravana.car_datahorachegada as DataHoraRetorno, caravana.car_datahorasaida as DataHoraSaida,  group_concat(DISTINCT en.end_bairro) as bairro, group_concat(DISTINCT en.end_rua) as rua, group_concat(DISTINCT en.end_tipo) as tipoEnd ,group_concat(DISTINCT ufcity.uc_uf) as uf, group_concat(DISTINCT ufcity.uc_cidade) as cidade from empresa inner join proposta on proposta.emp_id = empresa.emp_id inner join caravana_tem_proposta as chp on chp.proposta_pro_id = proposta.pro_id inner join caravana on caravana.car_id = chp.caravana_car_id inner join caravana_tem_endereco as cha on cha.caravana_car_id = caravana.car_id inner join endereco as en on cha.endereco_end_id = end_id inner join uf_e_cidades as ufcity on en.uc_id = ufcity.uc_id inner join proposta_tem_motorista as phm on phm.proposta_pro_id = proposta.pro_id inner join motorista on mot_id =phm.motorista_mot_id inner join proposta_tem_veiculos as phv on proposta.pro_id = phv.proposta_pro_id inner join veiculos on phv.veiculos_vei_id = veiculos.vei_id inner join modelo on veiculos.mod_id = modelo.mod_id where empresa.emp_id = ?emp_id group by car_datadecriação;;";
+
+        command = Mapped.Command(query, conexao);
+        dataAdapter = Mapped.Adapter(command);
+        command.Parameters.Add(Mapped.Parameter("?emp_id", id));
+
+        dataAdapter.Fill(ds);
+        conexao.Close();
+        conexao.Dispose();
+        command.Dispose();
+
+        return ds;
+    }
+
+    public static DataSet SelectPropostasFeitas2(int id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection conexao;
+        IDbCommand command;
+        IDataAdapter dataAdapter;
+        conexao = Mapped.Connection();
+        string query = "select proposta.pro_id as id, proposta.pro_valor as Valor, mot_nome as NomeMotorista, vei_placa as Placa, mod_marca as Marca, mod_nome as Modelo, proposta.pro_status as StatusProposta,proposta.con_id as ContraProposta,proposta.pro_data as dataDeEnvio, caravana.car_id ,caravana.car_titulo as titulo, caravana.car_datahorachegada as DataHoraRetorno, caravana.car_datahorasaida as DataHoraSaida,  group_concat(DISTINCT en.end_bairro) as bairro, group_concat(DISTINCT en.end_rua) as rua, group_concat(DISTINCT en.end_tipo) as tipoEnd ,group_concat(DISTINCT ufcity.uc_uf) as uf, group_concat(DISTINCT ufcity.uc_cidade) as cidade from empresa inner join proposta on proposta.emp_id = empresa.emp_id inner join caravana_tem_proposta as chp on chp.proposta_pro_id = proposta.pro_id inner join caravana on caravana.car_id = chp.caravana_car_id inner join caravana_tem_endereco as cha on cha.caravana_car_id = caravana.car_id inner join endereco as en on cha.endereco_end_id = end_id inner join uf_e_cidades as ufcity on en.uc_id = ufcity.uc_id inner join proposta_tem_motorista as phm on phm.proposta_pro_id = proposta.pro_id inner join motorista on mot_id =phm.motorista_mot_id inner join proposta_tem_veiculos as phv on proposta.pro_id = phv.proposta_pro_id inner join veiculos on phv.veiculos_vei_id = veiculos.vei_id inner join modelo on veiculos.mod_id = modelo.mod_id where empresa.emp_id = ?emp_id and caravana.car_idempcriador is null or caravana.car_idempcriador <> ?emp_id group by car_datadecriação limit 3;";
+
+        command = Mapped.Command(query, conexao);
+        dataAdapter = Mapped.Adapter(command);
+        command.Parameters.Add(Mapped.Parameter("?emp_id", id));
+
+        dataAdapter.Fill(ds);
+        conexao.Close();
+        conexao.Dispose();
+        command.Dispose();
+
+        return ds;
+    }
+
+
+    public static DataSet SelectThisProposta(int id)
+    {
+        DataSet ds = new DataSet();
+        IDbConnection conexao;
+        IDbCommand command;
+        IDataAdapter dataAdapter;
+        conexao = Mapped.Connection();
+        string query = "select proposta.pro_id as id, proposta.pro_valor as Valor, mot_nome as NomeMotorista, mot_datanasciment as DataNascimento, vei_placa as Placa, vei_ano as ano, mod_marca as Marca, mod_nome as Modelo, proposta.pro_status as StatusProposta,proposta.con_id as ContraProposta,proposta.pro_data as dataDeEnvio, caravana.car_id ,caravana.car_titulo as titulo, caravana.car_datahorachegada as DataHoraRetorno, caravana.car_datahorasaida as DataHoraSaida,  group_concat(DISTINCT en.end_bairro) as bairro, group_concat(DISTINCT en.end_rua) as rua, group_concat(DISTINCT en.end_tipo) as tipoEnd ,group_concat(DISTINCT ufcity.uc_uf) as uf, group_concat(DISTINCT ufcity.uc_cidade) as cidade from empresa inner join proposta on proposta.emp_id = empresa.emp_id inner join caravana_tem_proposta as chp on chp.proposta_pro_id = proposta.pro_id inner join caravana on caravana.car_id = chp.caravana_car_id inner join caravana_tem_endereco as cha on cha.caravana_car_id = caravana.car_id inner join endereco as en on cha.endereco_end_id = end_id inner join uf_e_cidades as ufcity on en.uc_id = ufcity.uc_id inner join proposta_tem_motorista as phm on phm.proposta_pro_id = proposta.pro_id inner join motorista on mot_id =phm.motorista_mot_id inner join proposta_tem_veiculos as phv on proposta.pro_id = phv.proposta_pro_id inner join veiculos on phv.veiculos_vei_id = veiculos.vei_id inner join modelo on veiculos.mod_id = modelo.mod_id where proposta.pro_id = ?pro_id group by car_datadecriação;;";
+
+        command = Mapped.Command(query, conexao);
+        dataAdapter = Mapped.Adapter(command);
+        command.Parameters.Add(Mapped.Parameter("?pro_id", id));
+
+        dataAdapter.Fill(ds);
+        conexao.Close();
+        conexao.Dispose();
+        command.Dispose();
+
+        return ds;
+    }
+
+    public static int UpdateProposta(string statu, int id)
+    {
+        int status = 0;
+        try
+        {
+            IDbConnection conexao;
+            IDbCommand query;
+            conexao = Mapped.Connection();
+            string command = "update proposta set pro_status = '"+ statu +"' where pro_id = ?pro_id;";
+            query = Mapped.Command(command, conexao);
+
+         
+            query.Parameters.Add(Mapped.Parameter("?pro_id",id ));
+
+            query.ExecuteNonQuery();
+            conexao.Close();
+            conexao.Dispose();
+            query.Dispose();
+
+        }
+        catch (Exception e)
+        {
+            status = 2;
+
+        }
+        return status;
+    }
 
 }

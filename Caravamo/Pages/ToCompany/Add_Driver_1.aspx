@@ -80,15 +80,25 @@
 
             <div class="col-3">
             </div>
-
             <div class="col-md-6 col-12 text-center">
                 <br />
                 <label>E-mail </label>
                 <asp:TextBox ID="txt_email" runat="server" CssClass="form-control" type="email" placeholder="exemplo@email.com"></asp:TextBox>
             </div>
-
             <div class="col-3">
             </div>
+              <div class="col-3">
+            </div>
+
+              <div class="col-md-6 col-12 text-center">
+                <br />
+                <label>Foto do Motorista </label>
+                  <br />
+                  <br />
+                  <asp:FileUpload runat="server" ID="fu_foto" />
+              <%--  <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" type="email" placeholder="exemplo@email.com"></asp:TextBox>--%>
+            </div>
+           
 
 
         </div>
@@ -105,7 +115,7 @@
 
             <div class="col-4">
                 <div class="ml-lg-5 ml-md-5 ml-0">
-                    <asp:LinkButton runat="server" ID="btnAvancar1" OnClick="btnAvancar1_Click" class="genric-btn info ml-lg-5 ml-md-5 ml-0" type="submit" >
+                    <asp:LinkButton runat="server" ID="btnAvancar1" OnClick="btnAvancar1_Click" class="genric-btn info ml-lg-5 ml-md-5 ml-0" type="submit">
    Avançar <i class=' fa fa-arrow-right d-none d-md-inline'></i>
                     </asp:LinkButton>
                 </div>
@@ -117,6 +127,7 @@
 
     <script src="../../js/jquery-3.3.1.slim.min.js" type="text/javascript"></script>
     <script src="../../js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../../js/additional-methods.min.js" type="text/javascript"></script>
     <script src="../../js/bootstrap.min.js"></script>
 
 
@@ -128,23 +139,33 @@
                     required: true
                 },
                      <%=txt_datanasc.UniqueID%>: {
-                         required: true,
-                         date: true
+                    required: true,
+                    date: true
                 },
                      <%=txt_email.UniqueID%>: {
                     required: true,
                     email: true
-                }
+                },
+                <%=fu_foto.UniqueID%>:{
+                    required: true,
+                   extension:'png|jpg'
+                },
+
                 }, messages: {
                     <%=txt_NomeMotorista.UniqueID%>: {
                     required: "Você deve informar um nome."
             },
+            <%=fu_foto.UniqueID%>:{
+                required: "Você deve inserir uma imagem do motorista.",
+               extension: "Formato de imagem inválido (Apenas .png são aceitos)"
+            },
+
                      <%=txt_datanasc.UniqueID%>: {
                     required: "Você deve informar uma data de nascimento."
             },
                      <%=txt_email.UniqueID%>: {
-                    required: "Você deve informar um endereço de email.",
-                    email: "Por favor, digite um endereço de email válido."
+                required: "Você deve informar um endereço de email.",
+                email: "Por favor, digite um endereço de email válido."
             }
             }
             });

@@ -13,16 +13,16 @@
                 <a href="#!" class="">Título e Descrição</a>
             </li>
             <li class="step-item">
-                <a href="Create_Caravan_2.aspx" class="">Endereços</a>
+                <a class="">Endereços</a>
             </li>
             <li class="step-item">
-                <a href="Create_Caravan_3.aspx" class="">Datas</a>
+                <a class="">Datas</a>
             </li>
             <li class="step-item">
-                <a href="Create_Caravan_4.aspx" class="">Categoria</a>
+                <a class="">Categoria</a>
             </li>
             <li class="step-item">
-                <a href="Create_Caravan_5.aspx" class="">Confirmar</a>
+                <a class="">Confirmar</a>
             </li>
         </ul>
     </div>
@@ -39,13 +39,26 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xl-3 text-lg-right text-md-right pt-4">
-                <label>Tipo:</label>
+                <label>Privacidade:</label>
             </div>
             <div class="col-md-8 col-lg-8 col-xl-8 col-12 pt-lg-4 pt-md-4 pt-0 ml-4 ml-lg-0 ml-md-0">
-                <asp:RadioButton ID="rbtn_publica" Text="Pública" Checked="True" GroupName="tipo" runat="server" /><br />
-                <asp:RadioButton ID="rbtn_privada" Text="Privada" GroupName="tipo" runat="server" /><br />
+                <asp:Literal runat="server" ID="ltl_privacidade"></asp:Literal>
+
+
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-xl-3 text-lg-right text-md-right pt-4">
+                <label>Foto de Capa:</label>
+            </div>
+            <div class="col-md-8 col-lg-8 col-xl-8 col-12 pt-lg-4 pt-md-4 pt-0 ml-4 ml-lg-0 ml-md-0">
+                <asp:FileUpload runat="server" ID="fu_foto" />
+
+
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col-md-3 text-lg-right text-md-right pt-3">
                 <label>Descrição da Caravana:</label>
@@ -65,7 +78,7 @@
         <div class="row">
             <div class="col-4 text-center">
                 <asp:Literal runat="server" ID="ltl_status"></asp:Literal>
-                <asp:Button runat="server" ID="btn_cancelar"  OnClick="btn_cancelar_Click" Text="Cancelar" CssClass="genric-btn danger" />
+                <asp:Button runat="server" ID="btn_cancelar" OnClick="btn_cancelar_Click" Text="Cancelar" CssClass="genric-btn danger cancel" />
             </div>
             <div class="col-4">
             </div>
@@ -96,14 +109,22 @@
                 },
                      <%=txt_descricao.UniqueID%>: {
                          required: true
-                }
+                },
+                     <%=fu_foto.UniqueID%>: {
+                    required: true,
+                    extension: 'png|jpg'
+                },
                 }, messages: {
                     <%=txt_tituloCaravana.UniqueID%>: {
                     required: "Você deve informar um título para a caravana."
-                },
+            },
+            <%=fu_foto.UniqueID%>: {
+                required: "Você deve inserir uma imagem de capa para Caravana.",
+               extension: "Formato de imagem inválido (Apenas .png são aceitos)"
+            },
                      <%=txt_descricao.UniqueID%>: {
-                    required: "Por favor, fale sobre o destino da sua caravana!."
-                }
+                required: "Por favor, fale sobre o destino da sua caravana!."
+            }
             }
             });
         });
@@ -119,13 +140,13 @@
             if (((keyEntry >= '65') && (keyEntry <= '90')) || ((keyEntry >= '97') && (keyEntry <= '122')) || (keyEntry == '46') || (keyEntry == '32') || keyEntry == '45')
                 return true;
             else {
-                 return false;
+                return false;
             }
         }
 
     </script>
-  
-    
+
+
 
 
 </asp:Content>

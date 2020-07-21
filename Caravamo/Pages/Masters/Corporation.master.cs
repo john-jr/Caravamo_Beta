@@ -21,4 +21,9 @@ public partial class Pages_Masters_Corporation : System.Web.UI.MasterPage
     {
         Response.Redirect("Propostas_Realizadas.aspx");
     }
+
+    protected void btn_CriarCaravanaEmpresa_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("../ToCompany/Create_Caravan_emp_1.aspx");
+    }
 }

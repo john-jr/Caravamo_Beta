@@ -263,7 +263,10 @@
         </div>
     </div>
 
+
     <div class="row" style="margin: 0">
+
+
         <div class="container">
             <div class="tabs">
                 <div class="tab-button-outer">
@@ -284,265 +287,33 @@
                 </div>
 
                 <div id="tab01" class="tab-contents">
-                    <!--CARD-->
-                    <div class="card mt-30">
-                        <div class="card-header text-center  pt-2 pb-1">
-                            <h4>
-                                <asp:Label runat="server" CssClass="card-title text-center" Text="Título da Caravana"></asp:Label>
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <asp:Image runat="server" CssClass="pt-md-4 pl-md-5" ImageUrl="~/img/index_images/noimg.png" />
-                            </div>
-                            <div class="col-md-8 px-3 pt-3">
-                                <div class="card-block px-3">
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Data de saída:</strong>
-                                            <%--<asp:Label runat="server" Text="22/09/2019">22/09/2019</asp:Label>--%>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Data de Chegada:</strong>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
 
-                                        </div>
-                                    </div>
 
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Endereço de Origem:</strong>
-                                            <asp:Literal runat="server">São Paulo - SP</asp:Literal>
+                    <asp:PlaceHolder ID="plh_status" runat="server"></asp:PlaceHolder>
 
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Endereço de Destino:</strong>
-                                            <asp:Literal runat="server">São Caetano - SP</asp:Literal>
 
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 mb-1">
-                                        <div style="font-size: 1.3em">
-                                            <asp:Button runat="server" CssClass="genric-btn primary mt-1 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!--CARD-->
-                    <div class="card mt-30">
-                        <div class="card-header text-center  pt-2 pb-1">
-                            <h4>
-                                <asp:Label runat="server" CssClass="card-title text-center" Text="Título da Caravana"></asp:Label>
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <asp:Image runat="server" CssClass="pt-md-4 pl-md-5" ImageUrl="~/img/index_images/noimg.png" />
-                            </div>
-                            <div class="col-md-8 px-3 pt-3">
-                                <div class="card-block px-3">
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Data de saída:</strong>
-                                            <%--<asp:Label runat="server" Text="22/09/2019">22/09/2019</asp:Label>--%>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Data de Chegada:</strong>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Endereço de Origem:</strong>
-                                            <asp:Literal runat="server">São Paulo - SP</asp:Literal>
-
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Endereço de Destino:</strong>
-                                            <asp:Literal runat="server">São Caetano - SP</asp:Literal>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 mb-1">
-                                        <div style="font-size: 1.3em">
-                                            <asp:Button runat="server" CssClass="genric-btn primary mt-1 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
                 <div id="tab02" class="tab-contents">
-                    <!--CARD-->
-                    <div class="card mt-30">
-                        <div class="card-header text-center  pt-2 pb-1">
-                            <h4>
-                                <asp:Label runat="server" CssClass="card-title text-center" Text="Título da Caravana"></asp:Label>
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <asp:Image runat="server" CssClass="pt-md-4 pl-md-5" ImageUrl="~/img/index_images/noimg.png" />
+                   <%-- <asp:Repeater runat="server" ID="corno0" OnItemCommand="corno0_ItemCommand">
+
+                        <ItemTemplate>
+                            <div class="col-md-3">
+                              
+                        <%# Eval("id") %>
+
+                                <asp:LinkButton ID="btn_ara" runat="server" CssClass="genric-btn primary" CommandName="amad" CommandArgument='<%= Bind("id")%>'></asp:LinkButton>
                             </div>
-                            <div class="col-md-8 px-3 pt-3">
-                                <div class="card-block px-3">
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Data de saída:</strong>
-                                            <%--<asp:Label runat="server" Text="22/09/2019">22/09/2019</asp:Label>--%>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Data de Chegada:</strong>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
+                        </ItemTemplate>
 
-                                        </div>
-                                    </div>
+                    </asp:Repeater>--%>
+                    <asp:PlaceHolder ID="plh_status2" runat="server"></asp:PlaceHolder>
 
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Endereço de Origem:</strong>
-                                            <asp:Literal runat="server">São Paulo - SP</asp:Literal>
-
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Endereço de Destino:</strong>
-                                            <asp:Literal runat="server">São Caetano - SP</asp:Literal>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 mb-1">
-                                        <div style="font-size: 1.3em">
-                                            <asp:Button runat="server" CssClass="genric-btn primary mt-1 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!--CARD-->
-                    <div class="card mt-30">
-                        <div class="card-header text-center  pt-2 pb-1">
-                            <h4>
-                                <asp:Label runat="server" CssClass="card-title text-center" Text="Título da Caravana"></asp:Label>
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <asp:Image runat="server" CssClass="pt-md-4 pl-md-5" ImageUrl="~/img/index_images/noimg.png" />
-                            </div>
-                            <div class="col-md-8 px-3 pt-3">
-                                <div class="card-block px-3">
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Data de saída:</strong>
-                                            <%--<asp:Label runat="server" Text="22/09/2019">22/09/2019</asp:Label>--%>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Data de Chegada:</strong>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Endereço de Origem:</strong>
-                                            <asp:Literal runat="server">São Paulo - SP</asp:Literal>
-
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Endereço de Destino:</strong>
-                                            <asp:Literal runat="server">São Caetano - SP</asp:Literal>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 mb-1">
-                                        <div style="font-size: 1.3em">
-                                            <asp:Button runat="server" CssClass="genric-btn primary mt-1 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!--CARD-->
-                    <div class="card mt-30">
-                        <div class="card-header text-center  pt-2 pb-1">
-                            <h4>
-                                <asp:Label runat="server" CssClass="card-title text-center" Text="Título da Caravana"></asp:Label>
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <asp:Image runat="server" CssClass="pt-md-4 pl-md-5" ImageUrl="~/img/index_images/noimg.png" />
-                            </div>
-                            <div class="col-md-8 px-3 pt-3">
-                                <div class="card-block px-3">
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Data de saída:</strong>
-                                            <%--<asp:Label runat="server" Text="22/09/2019">22/09/2019</asp:Label>--%>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Data de Chegada:</strong>
-                                            <asp:Literal runat="server">22/09/2019</asp:Literal>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="dates">
-                                        <div class="start">
-                                            <strong>Endereço de Origem:</strong>
-                                            <asp:Literal runat="server">São Paulo - SP</asp:Literal>
-
-                                            <span></span>
-                                        </div>
-                                        <div class="ends">
-                                            <strong>Endereço de Destino:</strong>
-                                            <asp:Literal runat="server">São Caetano - SP</asp:Literal>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 mb-1">
-                                        <div style="font-size: 1.3em">
-                                            <asp:Button runat="server" CssClass="genric-btn primary mt-1 mb-2 offset-lg-7 col-lg-4 col-12" Text="Mais informações" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <script src="../../js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>

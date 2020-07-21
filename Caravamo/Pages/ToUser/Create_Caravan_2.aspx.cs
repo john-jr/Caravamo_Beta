@@ -10,6 +10,20 @@ using System.Web.UI.WebControls;
 
 public partial class Pages_ToUser_Create_Caravan_2 : System.Web.UI.Page
 {
+    void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["id"] == null && Session["cliente"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+
+        if (Session["empresa"].Equals(true))
+        {
+            MasterPageFile = "~/Pages/Masters/Corporation.master";
+        }
+    }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -120,9 +134,8 @@ public partial class Pages_ToUser_Create_Caravan_2 : System.Web.UI.Page
                                 break;
 
                         }
-
-
-                        ddl_cidadeOrigem.SelectedValue = zipCodeInfo.City;
+                      ddl_estadoOrigem_SelectedIndexChanged(this, EventArgs.Empty);
+                      ddl_cidadeOrigem.SelectedValue = zipCodeInfo.City;
 
                         txt_bairroOrigem.Text = zipCodeInfo.District;
                         ddl_estadoOrigem.Enabled = false;
@@ -131,7 +144,7 @@ public partial class Pages_ToUser_Create_Caravan_2 : System.Web.UI.Page
                     }
                     else
                     {
-                        ltl_status.Text = "<script type = 'text/javascript' > toastr.error('Erro 7: Endereço fora da região sudeste') </script>";
+                        ltl_status.Text = "<script type = 'text/javascript'> toastr.error('Erro 7: Endereço fora da região sudeste') </script>";
                     }
 
                    
@@ -181,21 +194,22 @@ public partial class Pages_ToUser_Create_Caravan_2 : System.Web.UI.Page
                         switch (estado)
                         {
                             case "SP":
-                                ddl_estadoOrigem.SelectedValue = "São Paulo";
+                                ddl_estadoDestino.SelectedValue = "São Paulo";
                                 break;
 
                             case "RJ":
-                                ddl_estadoOrigem.SelectedValue = "Rio de Janeiro";
+                                ddl_estadoDestino.SelectedValue = "Rio de Janeiro";
                                 break;
 
                             case "MG":
-                                ddl_estadoOrigem.SelectedValue = "Minas Gerais";
+                                ddl_estadoDestino.SelectedValue = "Minas Gerais";
                                 break;
                             case "ES":
-                                ddl_estadoOrigem.SelectedValue = "Espírito Santo";
+                                ddl_estadoDestino.SelectedValue = "Espírito Santo";
                                 break;
 
                         }
+                        ddl_estadoDestino_SelectedIndexChanged(this, EventArgs.Empty);
                         txt_bairroDestino.Text = zipCodeInfo.District;
                         ddl_estadoDestino.Enabled = false;
                         ddl_cidadeDestino.Enabled = false;
@@ -244,5 +258,10 @@ public partial class Pages_ToUser_Create_Caravan_2 : System.Web.UI.Page
         ddl_cidadeOrigem.DataTextField = "uc_cidade";
         ddl_cidadeOrigem.DataValueField = "uc_cidade";
         ddl_cidadeOrigem.DataBind();
+    }
+
+    protected void btnRetornar1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Create_Caravan_1.aspx");
     }
 }

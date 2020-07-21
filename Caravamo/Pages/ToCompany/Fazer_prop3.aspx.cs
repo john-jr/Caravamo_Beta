@@ -8,6 +8,14 @@ using System.Web.UI.WebControls;
 
 public partial class Fazer_prop3 : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["id"] == null && Session["empresa"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
        string aux = Session["auxiliar"].ToString();

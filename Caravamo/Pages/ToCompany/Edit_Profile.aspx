@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    
+
     <link rel="icon" href="../../img/favicon.png" />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/animate.css" />
@@ -15,13 +15,12 @@
     <link rel="stylesheet" href="../../css/magnific-popup.css" />
     <link rel="stylesheet" href="../../css/slick.css" />
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/toastr.min.css" />
 
-     
 
-  
+
+
     <style>
-
-
         .project-tab {
             padding: 10%;
             margin-top: -8%;
@@ -68,16 +67,16 @@
                 font-weight: 600;
             }
     </style>
-     <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
     <script src="../../js/jquery-1.12.1.min.js"></script>
     <script src="../../js/toastr.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
+    <asp:Literal ID="ltl_status" runat="server"></asp:Literal>
     <section class="container-fluid">
         <div class="col-lg-12">
             <div class="row">
-              <!--  <div class="col-lg-2 offset-lg-3 mt-30" style="text-align: center">
+                <!--  <div class="col-lg-2 offset-lg-3 mt-30" style="text-align: center">
                     <asp:Image runat="server" ImageUrl="~/img/index_images/noimg.png" />
                  <a href="#">
                         <p style="font-size: small">
@@ -88,7 +87,7 @@
                 <div class="col-lg-12 mt-15" style="text-align: center">
                     <div class="col-lg-12 mt-lg-5">
                         <h3>
-                              <asp:Literal ID="ltl_status" runat="server">l</asp:Literal>
+
                             <asp:Label runat="server" ID="lbl_nomeFantasia" Text="Empresa de Transportes ME"></asp:Label>
                         </h3>
                     </div>
@@ -110,7 +109,7 @@
                         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false">Sua Conta</a>
                             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Alterar Senha</a>
-                            <a class="nav-item nav-link disabled d-none d-sm-block" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Notificações</a>
+
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -125,7 +124,7 @@
                                     <label class="mb-1">Razão Social</label>
                                     <div class="input-group">
                                         <br />
-                                        <asp:TextBox ID="txt_RazaoSocial" runat="server" Enabled="false" CssClass="form-control" Style="height: calc(1.5em + .75rem + 5px)"> </asp:TextBox>
+                                        <asp:TextBox ID="txt_RazaoSocial" runat="server" CssClass="form-control" Style="height: calc(1.5em + .75rem + 5px)"> </asp:TextBox>
                                         <div class="input-group-prepend">
                                             &nbsp
                             <asp:LinkButton ID="btn_editarRazaoSocial" runat="server" OnClick="btn_editarRazaoSocial_Click" CssClass="genric-btn primary ">
@@ -155,7 +154,7 @@
                                     <div class="input-group">
                                         <br />
                                         <br />
-                                        <asp:TextBox ID="txt_nomeFantasia" runat="server" Enabled="false" CssClass="form-control" Style="height: calc(1.5em + .75rem + 5px)"> </asp:TextBox>
+                                        <asp:TextBox ID="txt_nomeFantasia" runat="server" CssClass="form-control" Style="height: calc(1.5em + .75rem + 5px)"> </asp:TextBox>
                                         <div class="input-group-prepend">
                                             &nbsp
                             <asp:LinkButton ID="btn_editarNomeFantasia" runat="server" CssClass="genric-btn primary " OnClick="btn_editarNomeFantasia_Click">
@@ -186,7 +185,7 @@
                                     <div class="input-group">
                                         <br />
                                         <br />
-                                        <asp:TextBox ID="txt_email" runat="server" Enabled="false" CssClass="form-control" Style="height: calc(1.5em + .75rem + 5px)"> </asp:TextBox>
+                                        <asp:TextBox ID="txt_email" runat="server" CssClass="form-control" Style="height: calc(1.5em + .75rem + 5px)"> </asp:TextBox>
                                         <div class="input-group-prepend">
                                             &nbsp
                             <asp:LinkButton ID="btn_EditarEmail" OnClick="btn_EditarEmail_Click" runat="server" CssClass="genric-btn primary ">
@@ -310,12 +309,12 @@
             </div>
         </div>
     </section>
-    
+
 
     <script src="../../js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
 
-            <script src="../../js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../../js/jquery-3.3.1.slim.min.js"></script>
     <script src="../../js/jquery-ui.min.js"></script>
     <!-- particles js -->
     <script src="../../js/owl.carousel.min.js"></script>
@@ -328,6 +327,9 @@
 
     <script src="../../js/jquery.mask.min.js"></script>
     <script src="../../js/jquery.validate.min.js"></script>
+    <script src="../../js/toastr.js"></script>
+
+
 
 </asp:Content>
 

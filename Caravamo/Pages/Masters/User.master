@@ -31,35 +31,44 @@
             padding-left: 25px;
          
         }
+
+
+  .genric-btn.primary {
+    color: #404040 !important;
+    background: #ffcc00;
+    border: 1px solid transparent;
+}
+
+        .dropdown-menu{
+            padding: 0 0 !important;
+             border: 1px solid  #404040 !important;
+      
+        }
+
+    
     #user a{
-        
-        
          color: white;
        
     }
-    #user a:hover{
-        background-color: #ffcc00;
-    }
-
-
     #menuUser li{
         text-align:center;
-       
+       display:flex;  
     }
+    #menuUser li:hover{
+        transition: all 0.7s;
+        background-color: #ffff66;
+    }
+
     #menuUser a{
-          color: white;
+          color: #404040;
+          flex: 1;
     }
 
 
 
-    #menuUser a:hover{
-      color: black;
-
-        
-    }
+  
     .round-border{
         border-radius: 10px;
-       
     }
 
 
@@ -89,15 +98,17 @@
 
                         <div class="collapse navbar-collapse  main-menu-item " id="navbarSupportedContent">                         
                           <ul class="nav-item dropdown " id="user">
+                             
                                     <a class="nav-link dropdown-toggle  genric-btn primary round-border"  id="navbarDropdown"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                       <asp:Literal runat="server" ID="ltl_user"><i class="fa fa-user"></i>    User</asp:Literal>
+                                       <asp:Literal runat="server" ID="ltl_user"><i class="fa fa-user"></i>   User</asp:Literal>
                                     </a>
+                              
                               <li>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="menuUser">
                                         
                                         <li class="dropdown-item"><a href="../ToUser/EditarPerfil.aspx"> Minha Conta</a></li>
-                                          <li class="dropdown-item"><a href="#"> Minhas Caravanas</a></li>
+                                          <li class="dropdown-item"><a href="../ToUser/MinhasCaravanas.aspx"> Minhas Caravanas</a></li>
                           
                                         <li class="dropdown-item"><a href="../ToVisitor/Index.aspx">Sair</a></li>
                                     </ul>

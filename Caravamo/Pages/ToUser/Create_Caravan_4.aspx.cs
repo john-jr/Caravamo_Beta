@@ -8,6 +8,20 @@ using System.Web.UI.WebControls;
 
 public partial class Pages_ToUser_Create_Caravan_4 : System.Web.UI.Page
 {
+    void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["id"] == null && Session["cliente"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+
+        if (Session["empresa"].Equals(true))
+        {
+            MasterPageFile = "~/Pages/Masters/Corporation.master";
+        }
+    }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)

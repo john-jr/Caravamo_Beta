@@ -17,10 +17,11 @@ public class DriverDB
             IDbConnection conexao;
             IDbCommand query;
             conexao = Mapped.Connection();
-            string command = "INSERT into motorista(mot_nome, mot_genero, mot_datanasciment, mot_cpf, mot_cnh, emp_id, tip_id, usu_id) values (?mot_nome, ?mot_genero, ?mot_datanasciment, ?mot_cpf, ?mot_cnh, ?emp_id, ?tip_id, ?usu_id);";
+            string command = "INSERT into motorista(mot_nome, mot_foto ,mot_genero, mot_datanasciment, mot_cpf, mot_cnh, emp_id, tip_id, usu_id) values (?mot_nome, ?foto ,?mot_genero, ?mot_datanasciment, ?mot_cpf, ?mot_cnh, ?emp_id, ?tip_id, ?usu_id);";
             query = Mapped.Command(command, conexao);
 
             query.Parameters.Add(Mapped.Parameter("?mot_nome", mot.Mot_nome));
+            query.Parameters.Add(Mapped.Parameter("?foto",mot.Mot_foto));
             query.Parameters.Add(Mapped.Parameter("?mot_genero", mot.Mot_genero));
             query.Parameters.Add(Mapped.Parameter("?mot_datanasciment", mot.Mot_datadenascimento));
             query.Parameters.Add(Mapped.Parameter("?mot_cpf", mot.Mot_cpf));
@@ -52,7 +53,7 @@ public class DriverDB
         IDbCommand command;
         IDataAdapter dataAdapter;
         conexao = Mapped.Connection();
-        string query = "select motorista.mot_id,  motorista.mot_nome, motorista.mot_genero ,motorista.mot_datanasciment  , motorista.emp_id, usuario.usu_email from motorista inner join usuario on motorista.usu_id = usuario.usu_id where emp_id = ?emp_id";
+        string query = "select motorista.mot_id, motorista.mot_foto as foto  ,motorista.mot_nome, motorista.mot_genero ,motorista.mot_datanasciment  , motorista.emp_id, usuario.usu_email from motorista inner join usuario on motorista.usu_id = usuario.usu_id where emp_id = ?emp_id";
 
         command = Mapped.Command(query, conexao);
         dataAdapter = Mapped.Adapter(command);

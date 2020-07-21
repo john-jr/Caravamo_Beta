@@ -140,7 +140,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <h5><img src="../../img/logoB.png" style="width: 50%;"></h5>
+                            <h5><img src="../../img/logoT.png" style="width: 50%;"></h5>
                             <h1>Uma nova maneira de viajar</h1>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                                                             class="btn btn-link text-warning"><i
                                                                 class="fa fa-search"></i></button>
                                                     </div>
-                                                    <asp:TextBox runat="server"  type="search"  aria-describedby="button-addon2" placeholder="Pesquise por destinos,saídas ou eventos..." CssClass="form-control border-0 bg-light"></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txt_pesquisa"  type="search"  aria-describedby="button-addon2" placeholder="Pesquise por destinos,saídas ou eventos..." CssClass="form-control border-0 bg-light"></asp:TextBox>
 
 
               

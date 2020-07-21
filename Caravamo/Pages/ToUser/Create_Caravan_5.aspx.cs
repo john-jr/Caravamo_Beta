@@ -7,8 +7,26 @@ using System.Web.UI.WebControls;
 
 public partial class Pages_ToUser_Create_Caravan_5 : System.Web.UI.Page
 {
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["id"] == null && Session["cliente"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+
+        if (Session["empresa"].Equals(true))
+        {
+            MasterPageFile = "~/Pages/Masters/Corporation.master";
+        }
+    }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+
+
         if (!Page.IsPostBack)
         {
             Caravan car = (Caravan)Session["cadastro"];
@@ -16,6 +34,7 @@ public partial class Pages_ToUser_Create_Caravan_5 : System.Web.UI.Page
 
             ltl_tituloCaravana.Text = " " + car.Car_titulo;
             ltl_descricaoCaravana.Text = " " + car.Car_descricao;
+           
             int i = car.Car_privacidade;
             if(i == 0)
             {
@@ -102,8 +121,19 @@ public partial class Pages_ToUser_Create_Caravan_5 : System.Web.UI.Page
             }
             else
             {
-                ltl_status.Text = "<script type='text/javascript'> swal('Sucesso!', 'Você será redirecionado a página inicial', 'success')";
-                ltl_status.Text += ".then((value) => {window.location.replace('Home_user.aspx')}); </script> ";
+                if(UserDB.insertUserIntoCaravan(id,car.Usu_car_criador) == 0)
+                {
+                    Session["CaravanID"] = id;
+                    ltl_status.Text = "<script type='text/javascript'> swal('Sucesso!', 'Você será redirecionado a página da Caravana', 'success')";
+                    ltl_status.Text += ".then((value) => {window.location.replace('Caravana_Criador.aspx')}); </script> ";
+                }
+                else
+                {
+
+                }
+
+
+              
             }
         }
         else

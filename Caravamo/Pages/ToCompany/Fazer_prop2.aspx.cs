@@ -9,6 +9,14 @@ using System.Web.UI.WebControls;
 
 public partial class Fazer_prop2 : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["id"] == null && Session["empresa"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+    }
+
 
     protected void Page_Init(object sender, EventArgs e)
     {

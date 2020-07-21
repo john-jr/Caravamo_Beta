@@ -199,94 +199,20 @@
                         <article class="card-group-item ">
                             <div class="filter-content" style="border-top: 0 solid transparent;">
                                 <div class="card-body">
-                                    <label for="datepicker">Data de Saída:</label>
-                                    <asp:TextBox runat="server" TextMode="Date" CssClass="form-control text-center"></asp:TextBox>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="card-group-item">
-                            <hr>
-                            <div class="filter-content">
-                                <div class="card-body">
-                                    <label for="origem">Estado de origem:</label>
-
-                                    <asp:DropDownList runat="server" ID="ddlyear" CssClass="mb-2">
-
+                                    <label for="datepicker">Organizar Por:</label>
+                                    <asp:DropDownList runat="server" ID="DropDownList4" CssClass="mb-2">
                                         <%--<asp:ListItem Text="Estado" Selected="True" Value=""></asp:ListItem>--%>
-                                        <asp:ListItem Value="1">São Paulo</asp:ListItem>
-                                        <asp:ListItem Value="2">Minas Gerais</asp:ListItem>
-                                        <asp:ListItem Value="3">Rio de Janeiro</asp:ListItem>
-                                        <asp:ListItem Value="4">Espírito Santo</asp:ListItem>
+                                        <asp:ListItem Value="1">Mais Recentes</asp:ListItem>
+                                         <asp:ListItem Value="1">Mais Antigas</asp:ListItem>
+                                        <asp:ListItem Value="2">Menor Custo</asp:ListItem>
+                                        <asp:ListItem Value="3">Maior Custo</asp:ListItem>
+                                        
                                     </asp:DropDownList>
-
-
-                                    <br>
-                                    <br>
-                                    <label for="origem">Cidade de origem:</label>
-
-                                    <asp:DropDownList runat="server" ID="DropDownList1" CssClass="mb-2">
-                                        <asp:ListItem Value="1">Guaratinguetá</asp:ListItem>
-                                        <asp:ListItem Value="2">Lorena</asp:ListItem>
-                                        <asp:ListItem Value="3">São José dos Campos</asp:ListItem>
-                                    </asp:DropDownList>
-                                    <%--<select class="mr-sm-2" id="cidadeOrigem">
-
-                                        <option value="" disabled hidden selected>Cidade
-                                            </option>
-                                        <option value="1">Guaratinguetá</option>
-                                        <option value="2">Lorena</option>
-                                        <option value="3">São José dos Campos</option>
-                                    </select>--%>
                                 </div>
-                                <!-- card-body.// -->
                             </div>
                         </article>
-                        <!-- card-group-item.// -->
-                        <article class="card-group-item">
-                            <hr>
-                            <div class="filter-content">
-                                <div class="card-body">
-
-                                    <label for="Destino">Estado de destino:</label>
-                                    <%--<label for="Destino">Endereço de Destino:</label>--%>
-
-                                    <%--<select class="mb-2" id="estadoOrigem">
-                                        <option value="" disabled hidden selected>Estado
-                                                </option>
-                                        <option value="1">São Paulo</option>
-                                        <option value="2">Minas Gerais</option>
-                                        <option value="3">Rio de Janeiro</option>
-                                        <option value="3">Espírito Santo</option>
-                                    </select>--%>
-                                    <asp:DropDownList runat="server" ID="DropDownList2" CssClass="mb-2">
-                                        <asp:ListItem Value="1">São Paulo</asp:ListItem>
-                                        <asp:ListItem Value="2">Minas Gerais</asp:ListItem>
-                                        <asp:ListItem Value="3">Rio de Janeiro</asp:ListItem>
-                                        <asp:ListItem Value="4">Espírito Santo</asp:ListItem>
-                                    </asp:DropDownList>
-
-                                    <br>
-                                    <br>
-                                    <label for="Destino">Cidade de destino:</label>
-                                    <%--<select class="mr-sm-2" id="cidadeOrigem">
-
-                                        <option value="" disabled hidden selected>Cidade
-                                                </option>
-                                        <option value="1">Guaratinguetá</option>
-                                        <option value="2">Lorena</option>
-                                        <option value="3">São José dos Campos</option>
-                                    </select>--%>
-                                    <asp:DropDownList runat="server" ID="DropDownList3" CssClass="mr-sm-2">
-                                        <asp:ListItem Value="1">Guaratinguetá</asp:ListItem>
-                                        <asp:ListItem Value="2">Lorena</asp:ListItem>
-                                        <asp:ListItem Value="3">São José dos Campos</asp:ListItem>
-                                    </asp:DropDownList>
-
-                                </div>
-                                <!-- card-body.// -->
-                            </div>
-                        </article>
-                        <!-- card-group-item.// -->
+                      
+                       
                         <article class="card-group-item">
                             <hr>
                             <div class="filter-content">
@@ -365,7 +291,7 @@
                         <div class="card">
                             <div class="row ">
                                 <div class="col-md-4">
-                                    <asp:Image runat="server" src="../../img/index_images/ccxp19.jpg" CssClass="w-100 h-100"/>
+                                    <asp:Image runat="server" src="../../img/index_images/ccxp19.jpg" CssClass="w-100 h-100" />
                                 </div>
                                 <div class="col-md-8 px-3">
                                     <div class="card-block px-3">

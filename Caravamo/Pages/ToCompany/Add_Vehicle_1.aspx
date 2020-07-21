@@ -126,7 +126,9 @@
                     <asp:ListItem Value="16">2016</asp:ListItem>
                     <asp:ListItem Value="17">2017</asp:ListItem>
                     <asp:ListItem Value="18">2018</asp:ListItem>
-                    <asp:ListItem Value="19" Selected="True">2019</asp:ListItem>
+                    <asp:ListItem Value="19">2019</asp:ListItem>
+                    <asp:ListItem Value="20" Selected="True">2020</asp:ListItem>
+
                 </asp:DropDownList>
             </div>
             <div class="col-md-6">
@@ -149,7 +151,27 @@
 
             <div class="col-md-3">
             </div>
+
+              <div class="col-1 text-right">
+                <br>
+                <label for="txt_data">Foto do Veículo:</label>
+            </div>
+            <div class="col-md-2">
+                <br />
+                
+              <asp:FileUpload runat="server" ID="fu_foto"  CssClass="mt-2"/>
+            </div>
             <div class="col-md-6">
+            </div>
+
+
+            <div class="col-md-3">
+            </div>
+
+
+            <div class="col-md-6">
+
+
                 <hr />
             </div>
             <div class="col-md-3">
@@ -227,12 +249,20 @@
                     required: true
                 },
                     <%=txt_crlv.UniqueID%>: {
-                        required: true
-                }
+                    required: true
+                },
+                   <%=fu_foto.UniqueID%>:{
+                    required: true,
+                   extension:'png|jpg'
+                },
                 }, messages: {
                     <%=txt_marca.UniqueID%>: {
                     required: "Você deve informar a marca do veículo."
                 },
+              <%=fu_foto.UniqueID%>:{
+                required: "Você deve inserir uma imagem do veículo.",
+               extension: "Formato de imagem inválido (Apenas .png são aceitos)"
+            },
                      <%=txt_modelo.UniqueID%>: {
                     required: "Você deve informar o modelo do veículo."
                 },
@@ -240,8 +270,8 @@
                     required: "Você deve informar a placa do veículo."
                 },
                      <%=txt_crlv.UniqueID%>: {
-                         required: "Você deve informar o número do crlv.",
-                }
+                required: "Você deve informar o número do crlv.",
+            }
             }
             });
         });

@@ -11,7 +11,24 @@
       
 
     <link href="../../css/steps.css" rel="stylesheet" />
- 
+ <style>
+     b{
+         color: black;
+     }
+     .big_font{
+         font-size: 18px;
+         margin-left: 15%;
+     }
+     .myOffSet{
+         margin-left:16%;
+     }
+     .aux{
+         background-color: white;
+     }
+
+ </style>
+
+
     <div class="container">
         <div class="mt-5 mb-5 text-center">
             <h2>Criar Caravana</h2>
@@ -45,48 +62,62 @@
             </div>
 
             <div class="container">
-
+               
                 <div class="col-12">
-                    Título da Caravana:
+                    <div class=" big_font">
+                    <b>Título da Caravana:</b>
                     <asp:Literal runat="server" ID="ltl_tituloCaravana"></asp:Literal>
+                        </div>
                 </div>
                 <br />
-                <div class="col-12">
-                    Tipo:
+                <div class="row">
+                <div class="col-6 text-center" >
+                    <b>Privacidade:</b>
                     <asp:Literal runat="server" ID="ltl_tipoCaravana"></asp:Literal>
                 </div>
-                <br />
-
-                <div class="col-12">
-                    Descrição:
-                    <asp:Literal runat="server" ID="ltl_descricaoCaravana"></asp:Literal>
+               
+                     <div class="col-6 text-center">
+                     <b>Categoria:</b>
+                    <asp:Literal runat="server" ID="ltl_categoria"></asp:Literal>
+                        
                 </div>
+                </div>
+                 <br />
+                <div class="row">
+                <div class="col-12 text-left" >
+                 <div class="myOffSet">
+                    <b>Descrição:</b>
+                       <asp:TextBox ID="ltl_descricaoCaravana" Rows="5" Columns="105" TextMode="multiline" Style="resize: none"  Width="83%" ReadOnly="true" CssClass="form-control aux" runat="server"></asp:TextBox>
+                       </div>
+                </div>
+                    </div>
                 <br />
-                <div class="col-12">
-                    Endereço de Saída:
+                <div class="row">
+                <div class="col-6 text-center">
+                    <b>Endereço de Saída:</b>
                     <asp:Literal runat="server" ID="ltl_endSaida"></asp:Literal>
                 </div>
                 <br />
-                <div class="col-12">
-                    Endereço de Destino:
+                <div class="col-6 text-center">
+                    <b>Endereço de Destino:</b>
                     <asp:Literal runat="server" ID="ltl_endDest"></asp:Literal>
                 </div>
+                    </div>
                 <br />
-                <div class="col-12">
-                    Data de Saída:
+                <div class="row">
+                <br />
+                <div class="col-6 text-center">
+                    <b>Data de Saída:</b>
                     <asp:Literal runat="server" ID="ltl_datSaida"></asp:Literal>
                 </div>
                 <br />
-                <div class="col-12">
-                    Data de Retorno:
+                <div class="col-6 text-center">
+                    <b>Data de Retorno:</b>
                     <asp:Literal runat="server" ID="ltl_datDest"></asp:Literal>
                 </div>
                 <br />
-                <div class="col-12">
-                    Categoria:
-                    <asp:Literal runat="server" ID="ltl_categoria"></asp:Literal>
-                </div>
-
+               
+                    </div>
             </div>
 
         </div>

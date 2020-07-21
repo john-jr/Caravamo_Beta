@@ -102,7 +102,7 @@
                     <br class="d-none d-sm-block"/>
                     <br class="d-none d-sm-block"/>
                     <div class="col-md-12 col-11 offset-1 offset-lg-0 offset-md-0">
-                  <!--      <asp:Label runat="server" ID="lbl_foto" Text="Foto de Perfil: "></asp:Label>-->
+                      <asp:Label runat="server" ID="lbl_foto" Text="Foto de Perfil: "></asp:Label>
                     </div>
 
 

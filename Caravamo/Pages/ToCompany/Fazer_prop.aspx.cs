@@ -9,6 +9,15 @@ using System.Web.UI.WebControls;
 
 public partial class Fazer_prop : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (Session["id"] == null && Session["empresa"] == null)
+        {
+            Response.Redirect("../ToVisitor/Index.aspx?er=0");
+        }
+    }
+
+
     protected void Page_Init(object sender, EventArgs e)
     {
         DataSet ds = VehicleDB.selectVeiculo2(Convert.ToInt32(Session["id"]));
@@ -65,6 +74,11 @@ public partial class Fazer_prop : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        if(!Session["auxiliar4"].Equals(false))
+        {
+            Session["auxiliar"] = Session["auxiliar4"];
+        }
+
         string aux = Session["auxiliar"].ToString();
         string id = Regex.Replace(aux, "[^0-9.]", "");
         lbl_idCar.Text = id;

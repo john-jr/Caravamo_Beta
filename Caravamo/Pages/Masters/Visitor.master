@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="../../css/nice-select.css">
     <link rel="stylesheet" href="../../css/magnific-popup.css">
     <link rel="stylesheet" href="../../css/slick.css">
-
-   
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <link rel="stylesheet" href="../../css/toastr.min.css" />
 
 </head>
 <body>
@@ -82,18 +82,21 @@
 
 
                                     <div class="form-group">
-                                        <label>E-mail:</label>
+                                        <label style="text-align:left">E-mail:</label>
                                         <asp:TextBox runat="server" CssClass="form-control" placeholder="E-mail" ID="userEmail"></asp:TextBox>
 
                                     </div>
                                     <div class="form-group">
-                                        <label>Senha:</label>
+                                        <label style="text-align:left">Senha:</label>
                                         <asp:TextBox runat="server" CssClass="form-control" TextMode="Password" placeholder="Senha" ID="userSenha"></asp:TextBox>
-
+                                          <a class="float-right" style="display:inline-block" href="../ToVisitor/Redefinir_Senha.aspx">Esqueceu sua Senha?</a>
+                                        
+                                      
 
                                     </div>
                                     <div class="form-group text-center">
-                                        <asp:Button runat="server" type="submit" CssClass="genric-btn info" Style="width: 30%;" Text="Entrar" ID="btn_logar" OnClick="btn_logar_Click" />
+                                        <br />
+                                        <asp:Button runat="server" type="submit" CssClass="genric-btn info" Style="width: 40%;" Text="Entrar" ID="btn_logar" OnClick="btn_logar_Click" />
                                     </div>
                                 </form>
 
@@ -113,6 +116,8 @@
     <script src="../../js/jquery-1.12.1.min.js"></script>
     <script src="../../js/toastr.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+            <asp:Literal ID="ltl_statusM" runat="server"></asp:Literal>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

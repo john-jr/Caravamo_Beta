@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/jquery-ui.min.css" />
     <script src="../../js/bootstrap.min.js"></script>
-    <script src="../../js/jquery-1.12.1.min.js"></script>
+   
     <script src="../../js/toastr.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -36,6 +36,28 @@
         label.error {
             color: #F00;
         }
+        #password-strength-status{
+          font-family:  "Roboto", sans-serif;
+            padding: 1px 10px;
+         color: #000000;
+            border-radius: 4px;
+         margin-top: 5px;
+        }
+        .weak-password{
+            background-color: #FF6600;
+    border: #AA4502 1px solid;
+}
+        .medium-password{
+            background-color: #E4DB11;
+    border: #BBB418 1px solid;
+        }
+        .strong-password {
+    background-color: #12CC1A;
+    border: #0FA015 1px solid;
+}
+        
+        
+
     </style>
 
 </head>
@@ -84,15 +106,32 @@
                             <asp:TextBox runat="server" ID="txtArtesp" CssClass="form-control" placeholder="Número de Registro da Artesp"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="form-group ">
+                   
+                    <div class="row ">
+                    <div class="form-group col-11">       
                         <br />
-                        <p>Senha:</p>
-                        <asp:TextBox runat="server" ID="txtSenha" type="password" CssClass="form-control" placeholder="Senha"></asp:TextBox>
-                    </div>
-                    <div class="form-group ">
+                        <p>Senha:</p>           
+                        <asp:TextBox runat="server" ID="txtSenha" type="password" CssClass="form-control" placeholder="Senha" onKeyUp="checkPasswordStrength()"></asp:TextBox>
+                        <div id="password-strength-status"></div>
+                        <label for="txtSenha" class="error" generated="true"></label>
+                    </div> 
+                        <div class="col-1">
+                            <br />
+                            <br />
+                           
+                           <button type="button" id="btn_infoSenha" class="fa fa-info mt-3 btn-info text-center"  style="background-color: #ffcc00; border-color:#ffcc00; cursor:default"  ></button>
+                        </div>
+
+                        
+
+                        </div>
+
+                     <div class="row mt-0">
+                    <div class="form-group col-11  col-md-11">
                         <p>Repita a Senha:</p>
                         <asp:TextBox runat="server" ID="txtSenha2" type="password" CssClass="form-control" placeholder="Repita a Senha"></asp:TextBox>
                     </div>
+                          </div>
 
 
 
@@ -135,9 +174,13 @@
 
         </div>
     </footer>
+   
+     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
+     <script src="../../js/jquery-1.12.1.min.js"></script>
     <script src="../../js/jquery-3.3.1.slim.min.js"></script>
-
+  
 
 
     <script src="../../js/jquery.mask.min.js"></script>
@@ -145,13 +188,46 @@
     <script src="../../js/additional-methods.min.js"></script>
 
     <script>
+        tippy('#btn_infoSenha', {
+               placement: 'bottom',
+            content: 'Uma senha forte possui no mínimo 8 caracteres. Contendo letras,números e caracteres alfanuméricos.'
+         
+        });
+    </script>
+    <script>
+        function checkPasswordStrength() {
+var number = /([0-9])/;
+var alphabets = /([a-zA-Z])/;
+var special_characters = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+           
+if($('#txtSenha').val().length<7) {
+$('#password-strength-status').removeClass();
+$('#password-strength-status').addClass('weak-password');
+$('#password-strength-status').html("Senha Fraca (Precisa ter no minímo 8 caracteres)");
+} else {  	
+if($('#txtSenha').val().match(number) && $('#txtSenha').val().match(alphabets) && $('#txtSenha').val().match(special_characters)) {            
+$('#password-strength-status').removeClass();
+$('#password-strength-status').addClass('strong-password');
+$('#password-strength-status').html("Senha Forte");
+} else {
+$('#password-strength-status').removeClass();
+$('#password-strength-status').addClass('medium-password');
+$('#password-strength-status').html("Senha Mediana (Inclua números e caracteres alfanuméricos)");
+}}}
+    </script>
+    <script>
         $(document).ready(function () {
             $('#<%= txtcnpj.ClientID%>').mask('00.000.000/0000-00');
-            $('#<%= txtArtesp.ClientID%>').mask("S0-0000");
-
+            $('#<%= txtArtesp.ClientID%>').mask("S0-0000");      
         });
-
         $(document).ready(function () {
+            $("#txtSenha").blur(function(){
+                if ($("#txtSenha").val() == "") {
+                    $('#password-strength-status').removeClass();
+                    $('#password-strength-status').html("");
+                  
+                };
+});
             $("#form1").validate({
                 rules: {
                     txtNome: {
@@ -172,7 +248,8 @@
                     required: true
                 },
                     txtSenha: {
-                    required: true
+                        required: true,
+                        minlength: 8
                 },
                     txtSenha2: {
                     required: true
@@ -196,7 +273,8 @@
                         required: "*Campo obrigatório"
                     },
                     txtSenha: {
-                        required: "*Campo obrigatório"
+                        required: "*Campo obrigatório",
+                         minlength: "Por Favor, insira uma senha mais complexa"
                     },
                     txtSenha2: {
                         required: "*Campo obrigatório"
@@ -204,8 +282,15 @@
             }
             });
         });
-
     </script>
+    
+    <script >
+              $('#btnCadastrar').on('click', function() {
+    $("#form1").validate();
+});
+    </script>
+
+
 </body>
 
 </html>
